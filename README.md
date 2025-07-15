@@ -60,25 +60,29 @@ exit 입력 시 종료, 계속하려면 Enter: exit
 ## 📌 코드 설명 포인트
 
 1. OperatorType + 람다
+```java
 PLUS('+', (num1, num2) -> num1.doubleValue() + num2.doubleValue())
-람다식으로 연산 로직 삽입
-doubleValue() 사용해 숫자 타입 통일
+```
+- 람다식으로 연산 로직 삽입
+- doubleValue() 사용해 숫자 타입 통일
 
 2. 함수형 인터페이스 Operation<N>
+```java
 @FunctionalInterface
 public interface Operation<N> {
     double calculate(N a, N b);
 }
-람다식을 위한 구조적 기반 제공
+```
+- 람다식을 위한 구조적 기반 제공
 
 3. Calculator<N> 클래스
-calculate() 메서드: Enum 기반 계산 + 결과 저장
-printResult(): IntStream + Collectors.joining()으로 예쁜 출력
-deleteResult(), searchBigResult(): 결과 관리 기능
+- `calculate()` 메서드: Enum 기반 계산 + 결과 저장
+- `printResult()`: `IntStream` + `Collectors.joining()`으로 예쁜 출력
+- `deleteResult()`, `searchBigResult()`: 결과 관리 기능
 
 4. CheckValue
-숫자 입력: Double.parseDouble() + 반복 검증
-연산자 입력: 길이 및 "+-*/" 포함 여부 체크
+- 숫자 입력: `Double.parseDouble()` + 반복 검증
+- 연산자 입력: 길이 및 `"+-*/"` 포함 여부 체크
 
 ## 🌱 배운 점 / 향후 개선
 - Enum + 람다	계산 로직 모듈화 및 전략 분리
